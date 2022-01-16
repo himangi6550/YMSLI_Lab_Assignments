@@ -1,0 +1,18 @@
+package com;
+
+public class q1 {
+	public static void main(String[] args) {
+		printfibonacci(20);
+	}
+	
+	public static void printfibonacci(int n) {
+		int a=0,b=1,c;
+		for(int i=1;i<20;i++) {
+			c=a+b;
+			a=b;
+			b=c;
+			System.out.println(c+" ");
+		}
+	}
+
+}
