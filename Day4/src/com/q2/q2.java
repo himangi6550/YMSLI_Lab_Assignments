@@ -8,36 +8,37 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class q2 {
-	private static void writeData(File file) {
-		try(BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-			Scanner in = new Scanner(System.in)){
-			String writeToFile = "";
-			System.out.println("Enter text to write to file");
-			writeToFile = in.nextLine();
-			writer.write(writeToFile);
-			System.out.println("\nFile written Succesfully\n");
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			System.out.println("Cannot write to File");
-		}
+	public static void main(String[] args) {
+		File file = new File("story.txt");
+		readFile(file);
+		writeFile(file);		
 	}
 	
-	private static String readData(File file) {
+	private static String readFile(File file) {
 		String line = null;
-		try(BufferedReader reader = new BufferedReader(new FileReader(file))){
-			while((line=reader.readLine())!=null) {
+	
+		try(BufferedReader br= new BufferedReader(new FileReader(file))){
+			while((line=br.readLine())!=null) {
 				System.out.println(line);
 			}
-			System.out.println("File Reading Complete");
+			System.out.println("File Read Successfully");
 		}catch(Exception ex) {
 			ex.printStackTrace();
-			System.out.println("Cannot read from File");
 		}
 		return line;
 	}
-	public static void main(String[] args) {
-		File file = new File("char.txt");
-		writeData(file);
-		readData(file);
+	
+	private static void writeFile(File file) {
+		Scanner sc = new Scanner(System.in);
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))){
+			System.out.println("Enter text to be written");
+			String dataToBeWritten = sc.nextLine();
+			bw.write(dataToBeWritten);
+			System.out.println("File updated Succesfully");
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}
+	
+	
 }

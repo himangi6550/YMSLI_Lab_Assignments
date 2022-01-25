@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 public class q1 {
-	private static byte[] readContent(File file)
+	private static byte[] readFile(File file)
 	{
 		byte[] arr = new byte[(int)file.length()];
 		try(FileInputStream input = new FileInputStream(file)){
@@ -27,7 +27,7 @@ public class q1 {
 	
 	public static void main(String[] args) {
 		File file = new File("hello");
-		readContent(file);
+		readFile(file);
 	}
 
 }
