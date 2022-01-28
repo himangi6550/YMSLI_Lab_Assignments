@@ -10,12 +10,11 @@ public class FIlereader {
 
 	public static void main(String args[]) {
 		ArrayList<Merchandise> merchandise = new ArrayList<>();
-		try (BufferedReader read = new BufferedReader(new FileReader("input.dat"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("input.dat"))) {
 			String str = null;
-			while ((str = read.readLine()) != null) {
+			while ((str = br.readLine()) != null) {
 				String[] element = str.split(" ");
-				merchandise
-						.add(new Merchandise(element[0], Integer.parseInt(element[1]), Double.parseDouble(element[2])));
+				merchandise.add(new Merchandise(element[0], Integer.parseInt(element[1]), Double.parseDouble(element[2])));
 			}
 		} catch (IOException ex) {
 			// TODO Auto-generated catch block

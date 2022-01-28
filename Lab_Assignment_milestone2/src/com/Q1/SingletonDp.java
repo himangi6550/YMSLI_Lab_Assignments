@@ -17,20 +17,21 @@ public class SingletonDp implements Cloneable, Serializable {
 
 		if (singleton != null) {
 
-			throw new IllegalStateException("Dont Call me Using Reflection"); 
+			throw new IllegalStateException(); 
 			
-// using reflection
+
 
 		}
 
 	}
 
+	// Double Locking applied
 	public static SingletonDp getSingleton() {
 
 		if (singleton == null) {
 
 			synchronized (SingletonDp.class) {
-// Double Locking applied
+
 				if (singleton == null) {
 
 					singleton = new SingletonDp(); 
@@ -46,7 +47,6 @@ public class SingletonDp implements Cloneable, Serializable {
 	}
 
 	@Override
-
 	protected Object clone() throws CloneNotSupportedException {
 
 		return singleton; 
@@ -54,11 +54,9 @@ public class SingletonDp implements Cloneable, Serializable {
 	}
 
 	private Object readResolve() {
-
 		return singleton; 
 		
-		
-// using deserialization
+
 
 	}
 
@@ -68,6 +66,8 @@ public class SingletonDp implements Cloneable, Serializable {
 
 		MySingleton singletonEnum2 = MySingleton.SINGLETON;
 		System.out.println(singletonEnum2.hashCode());
+		
+		
 	}
 
 }
