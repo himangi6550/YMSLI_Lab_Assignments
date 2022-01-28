@@ -16,7 +16,7 @@ class JobOfSum implements Runnable {
 		count++;
 		sum = sum + randomNumber;
 		if (count == 5) {
-			
+
 			isDone = true;
 			synchronized (this) {
 				notifyAll();

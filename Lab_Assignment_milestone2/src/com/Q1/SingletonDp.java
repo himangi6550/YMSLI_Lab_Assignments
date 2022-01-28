@@ -11,15 +11,13 @@ public class SingletonDp implements Cloneable, Serializable {
 
 	private static final long serialVersionUID = -6834926027969920657L;
 
-	private volatile static SingletonDp singleton = null; 
+	private volatile static SingletonDp singleton = null;
 
 	private SingletonDp() {
 
 		if (singleton != null) {
 
-			throw new IllegalStateException(); 
-			
-
+			throw new IllegalStateException();
 
 		}
 
@@ -34,7 +32,7 @@ public class SingletonDp implements Cloneable, Serializable {
 
 				if (singleton == null) {
 
-					singleton = new SingletonDp(); 
+					singleton = new SingletonDp();
 
 				}
 
@@ -49,25 +47,22 @@ public class SingletonDp implements Cloneable, Serializable {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 
-		return singleton; 
+		return singleton;
 
 	}
 
 	private Object readResolve() {
-		return singleton; 
-		
-
+		return singleton;
 
 	}
 
 	public static void main(String[] args) {
-		MySingleton singletonEnum = MySingleton.SINGLETON; 
+		MySingleton singletonEnum = MySingleton.SINGLETON;
 		System.out.println(singletonEnum.hashCode());
 
 		MySingleton singletonEnum2 = MySingleton.SINGLETON;
 		System.out.println(singletonEnum2.hashCode());
-		
-		
+
 	}
 
 }
