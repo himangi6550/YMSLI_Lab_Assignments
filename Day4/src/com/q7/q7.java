@@ -7,6 +7,11 @@ public class q7 {
 	}
 	
 	public static void main(String[] args) {
-		throwException();
+		try {
+			throwException();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
