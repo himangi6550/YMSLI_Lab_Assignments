@@ -12,12 +12,15 @@ private CustomerDao customerDao;
 	
 
 	public CustomerServiceImpl() {
+		System.out.println("yoyo");
 		customerDao = new CustomerDaoImpl();
 	}
 
 	@Override
 	public List<Customer> getAllCustomers() throws DataAccessException {
 		List<Customer> customers = new ArrayList<>();
+		System.out.println("hello");
+		System.out.println(customerDao);
 		customers = customerDao.getAllCustomers();
 		return customers;
 	}
